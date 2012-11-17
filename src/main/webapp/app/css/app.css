@@ -1,0 +1,133 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#quizzes  {
+    border: 1px solid black;
+    width: 75%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: black;
+}
+
+#quizzes tr th {
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    background-color: lightblue;
+}
+
+#quizzes tr td {
+    text-align: left;
+    background-color: lightyellow;
+    padding: 0;
+    margin: 0;
+}
+
+form.quizzo-angular-form {
+    background-color: yellow;
+    width: 600px;
+    padding:10px;
+    border: 1px solid black;
+    margin: auto;
+    position: relative;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 24px;
+    font-weight: bold;
+    color: #09C;
+    text-decoration: none;
+}
+
+form.quizzo-angular-form p label  {
+    width: 250px;
+    margin-right: 50px;
+    display:block;
+}
+
+input {
+    text-align: left;
+    display: block;
+    width: 350px;
+    border: 1px solid #999;
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"]
+{
+    width:150px;
+    display:block;
+    margin-bottom:10px;
+}
+input[type="button"]
+{
+    width:120px;
+    margin-left:0px;
+    display:block;
+}
+
+textarea {
+    width:375px;
+    height:150px;
+    display:block;
+}
+
+input.button {
+    width:70px;
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    background:#09C;
+    color:#fff;
+    font-family: Tahoma, Geneva, sans-serif;
+    height:30px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid #999;
+}
+input.button:hover {
+    background:#fff;
+    color:#09C;
+}
+textarea:focus, input:focus {
+    border: 1px solid #09C;
+}

@@ -1,0 +1,13 @@
+{
+  "name" : "Easy Quiz",
+  "id" : "tough_quiz",
+  "description" : "This is a tough quiz.",
+  "players" : [
+		{
+			"nick" : "Joey"
+		},
+		{
+			"nick" : "Sue"
+		}
+	]
+}

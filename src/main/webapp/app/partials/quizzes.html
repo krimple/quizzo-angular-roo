@@ -1,0 +1,17 @@
+<b>Filter:</b>
+<input type="text" ng-model="myfilter" /><br/>
+
+<table id="quizzes">
+	<tr>
+		<th>Quiz</th>
+		<th>Description</th>
+		<th>Action</th>
+	</tr>
+	<tr class="quizzes" 
+	    ng-repeat='quiz in quizzes | filter: myfilter | orderBy: name'>
+		<td>{{quiz.name}}</td>
+		<td>{{quiz.description}}</td>
+		<td><a href="#/quiz/{{quiz.id}}">Select Quiz</a></td>
+	</tr>
+</table>
+

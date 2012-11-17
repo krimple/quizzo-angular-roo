@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_chariot_quizzo_db_Quiz" object="${quiz}" path="/quizzes" z="dPIFbhGv3vrT/ADeqrgVn0lk7j4=">
+        <field:display field="name" id="s_com_chariot_quizzo_db_Quiz_name" object="${quiz}" z="rcCM8793DQgnAGTSjzPAFDCpeXE="/>
+        <field:display field="short_name" id="s_com_chariot_quizzo_db_Quiz_short_name" object="${quiz}" z="vVM/y0pzZjN9f7NBHcq29O7ynME="/>
+        <field:display field="description" id="s_com_chariot_quizzo_db_Quiz_description" object="${quiz}" z="C+jXEq19qozInAFxsqe8LfdIcfs="/>
+    </page:show>
+</div>
