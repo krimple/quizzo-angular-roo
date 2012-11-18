@@ -1,7 +1,10 @@
 <h1>{{quizDetails.name}}</h1>
+<h2>Short Name</h2>
+<div>{{quizDetails.shortName}}</div>
+
 <h2>Description</h2>
 <div>{{quizDetails.description}}</div>
 <h2>Players</h2>
 <ul>
-	<li ng-repeat="player in quizDetails.players">{{player.nick}}</a></li>
+	<li ng-repeat="player in quizDetails.players">{{player.nickName}}</a></li>
 </ul>

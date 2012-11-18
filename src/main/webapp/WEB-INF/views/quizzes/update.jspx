@@ -6,5 +6,6 @@
         <field:input field="name" id="c_com_chariot_quizzo_db_Quiz_name" z="LpmuO9r6Nwi9Vd19XnIIJ3hCvvE="/>
         <field:input field="short_name" id="c_com_chariot_quizzo_db_Quiz_short_name" z="aW+aGEtyGZ2QZulQNskn9He0m+U="/>
         <field:input field="description" id="c_com_chariot_quizzo_db_Quiz_description" z="u9SvkuMfmrE3LJ5B1jS7nY1dOBo="/>
+        <field:select field="players" id="c_com_chariot_quizzo_db_Quiz_players" itemValue="id" items="${players}" multiple="true" path="/players" z="OS99iOFHIII51DTJe9FBUhUZhGA="/>
     </form:update>
 </div>

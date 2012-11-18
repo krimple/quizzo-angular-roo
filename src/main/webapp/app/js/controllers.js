@@ -13,11 +13,9 @@ function QuizzoRESTCtrl($scope, Quiz) {
   $scope.quizzes = Quiz.query();
 }
 
-function QuizDetailsCtrl($scope, $http, $routeParams) {
-	$http.get('/quizzo/quizzes/' + $routeParams.quiz).
-	  success(function(data) {
-		$scope.quizDetails = data;
-	});
+function QuizDetailsCtrl($scope, Quiz, $routeParams) {
+	$scope.quizDetails = Quiz.get({'id' : $routeParams.quiz});
+    console.log($scope.quizDetails);
 }
 
 function NewQuizCtrl($scope) {

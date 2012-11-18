@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_chariot_quizzo_db_Player" modelAttribute="player" path="/players" versionField="Version" z="NOSOAEgV8C4d9vjd72yj4ieZfrw=">
+        <field:input field="nickName" id="c_com_chariot_quizzo_db_Player_nickName" z="M3/usO6JglRlxgEIiu2Kme6ChAI="/>
+        <field:input field="firstName" id="c_com_chariot_quizzo_db_Player_firstName" z="TM7tNHBkszsWgPslAlwoHh7t7tg="/>
+        <field:input field="lastName" id="c_com_chariot_quizzo_db_Player_lastName" z="3B4IKFMw+bk/ASZhiYwrSsK5LaI="/>
+    </form:update>
+</div>

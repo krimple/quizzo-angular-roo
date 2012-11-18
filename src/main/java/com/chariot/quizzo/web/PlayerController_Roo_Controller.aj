@@ -4,8 +4,7 @@
 package com.chariot.quizzo.web;
 
 import com.chariot.quizzo.db.Player;
-import com.chariot.quizzo.db.Quiz;
-import com.chariot.quizzo.web.QuizController;
+import com.chariot.quizzo.web.PlayerController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -18,79 +17,78 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
-privileged aspect QuizController_Roo_Controller {
+privileged aspect PlayerController_Roo_Controller {
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String QuizController.create(@Valid Quiz quiz, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String PlayerController.create(@Valid Player player, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, quiz);
-            return "quizzes/create";
+            populateEditForm(uiModel, player);
+            return "players/create";
         }
         uiModel.asMap().clear();
-        quiz.persist();
-        return "redirect:/quizzes/" + encodeUrlPathSegment(quiz.getId().toString(), httpServletRequest);
+        player.persist();
+        return "redirect:/players/" + encodeUrlPathSegment(player.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", produces = "text/html")
-    public String QuizController.createForm(Model uiModel) {
-        populateEditForm(uiModel, new Quiz());
-        return "quizzes/create";
+    public String PlayerController.createForm(Model uiModel) {
+        populateEditForm(uiModel, new Player());
+        return "players/create";
     }
     
     @RequestMapping(value = "/{id}", produces = "text/html")
-    public String QuizController.show(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("quiz", Quiz.findQuiz(id));
+    public String PlayerController.show(@PathVariable("id") Long id, Model uiModel) {
+        uiModel.addAttribute("player", Player.findPlayer(id));
         uiModel.addAttribute("itemId", id);
-        return "quizzes/show";
+        return "players/show";
     }
     
     @RequestMapping(produces = "text/html")
-    public String QuizController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String PlayerController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
             final int firstResult = page == null ? 0 : (page.intValue() - 1) * sizeNo;
-            uiModel.addAttribute("quizzes", Quiz.findQuizEntries(firstResult, sizeNo));
-            float nrOfPages = (float) Quiz.countQuizzes() / sizeNo;
+            uiModel.addAttribute("players", Player.findPlayerEntries(firstResult, sizeNo));
+            float nrOfPages = (float) Player.countPlayers() / sizeNo;
             uiModel.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            uiModel.addAttribute("quizzes", Quiz.findAllQuizzes());
+            uiModel.addAttribute("players", Player.findAllPlayers());
         }
-        return "quizzes/list";
+        return "players/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String QuizController.update(@Valid Quiz quiz, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+    public String PlayerController.update(@Valid Player player, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, quiz);
-            return "quizzes/update";
+            populateEditForm(uiModel, player);
+            return "players/update";
         }
         uiModel.asMap().clear();
-        quiz.merge();
-        return "redirect:/quizzes/" + encodeUrlPathSegment(quiz.getId().toString(), httpServletRequest);
+        player.merge();
+        return "redirect:/players/" + encodeUrlPathSegment(player.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String QuizController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        populateEditForm(uiModel, Quiz.findQuiz(id));
-        return "quizzes/update";
+    public String PlayerController.updateForm(@PathVariable("id") Long id, Model uiModel) {
+        populateEditForm(uiModel, Player.findPlayer(id));
+        return "players/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String QuizController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
-        Quiz quiz = Quiz.findQuiz(id);
-        quiz.remove();
+    public String PlayerController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+        Player player = Player.findPlayer(id);
+        player.remove();
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/quizzes";
+        return "redirect:/players";
     }
     
-    void QuizController.populateEditForm(Model uiModel, Quiz quiz) {
-        uiModel.addAttribute("quiz", quiz);
-        uiModel.addAttribute("players", Player.findAllPlayers());
+    void PlayerController.populateEditForm(Model uiModel, Player player) {
+        uiModel.addAttribute("player", player);
     }
     
-    String QuizController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
+    String PlayerController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
         String enc = httpServletRequest.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;

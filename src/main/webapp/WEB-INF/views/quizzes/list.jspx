@@ -7,6 +7,7 @@
             <table:column id="c_com_chariot_quizzo_db_Quiz_name" property="name" z="N8O8slopJz+gZWyR4TsUEh9DOlg="/>
             <table:column id="c_com_chariot_quizzo_db_Quiz_short_name" property="short_name" z="T9eMUXZQqRy8fxUi0kQYdopLbJ4="/>
             <table:column id="c_com_chariot_quizzo_db_Quiz_description" property="description" z="DEYBDSDqjRfxaEqCjnPBAO6mnwY="/>
+            <table:column id="c_com_chariot_quizzo_db_Quiz_players" property="players" z="wzUCaHYYcLQlM7hn2hcb+aaXO0Y="/>
         </table:table>
     </page:list>
 </div>

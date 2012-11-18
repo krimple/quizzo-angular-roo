@@ -13,7 +13,7 @@ import java.util.List;
 privileged aspect Quiz_Roo_Json {
     
     public String Quiz.toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
+        return new JSONSerializer().exclude("*.class").deepSerialize(this);
     }
     
     public static Quiz Quiz.fromJsonToQuiz(String json) {
@@ -21,7 +21,7 @@ privileged aspect Quiz_Roo_Json {
     }
     
     public static String Quiz.toJsonArray(Collection<Quiz> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
+        return new JSONSerializer().exclude("*.class").deepSerialize(collection);
     }
     
     public static Collection<Quiz> Quiz.fromJsonArrayToQuizzes(String json) {

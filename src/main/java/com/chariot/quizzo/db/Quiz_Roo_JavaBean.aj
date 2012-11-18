@@ -3,7 +3,9 @@
 
 package com.chariot.quizzo.db;
 
+import com.chariot.quizzo.db.Player;
 import com.chariot.quizzo.db.Quiz;
+import java.util.Set;
 
 privileged aspect Quiz_Roo_JavaBean {
     
@@ -29,6 +31,14 @@ privileged aspect Quiz_Roo_JavaBean {
     
     public void Quiz.setDescription(String description) {
         this.description = description;
+    }
+    
+    public Set<Player> Quiz.getPlayers() {
+        return this.players;
+    }
+    
+    public void Quiz.setPlayers(Set<Player> players) {
+        this.players = players;
     }
     
 }

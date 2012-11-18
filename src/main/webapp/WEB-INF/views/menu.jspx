@@ -7,5 +7,9 @@
             <menu:item id="i_quiz_new" messageCode="global_menu_new" url="/quizzes?form" z="user-managed"/>
             <menu:item id="i_quiz_list" messageCode="global_menu_list" url="/quizzes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
+        <menu:category id="c_player" z="cK8M0OPX/OW66GiF/SNgS8vWpjs=">
+            <menu:item id="i_player_new" messageCode="global_menu_new" url="/players?form" z="xCwCGj+PbS/WEOyltkUd6nZ4y4g="/>
+            <menu:item id="i_player_list" messageCode="global_menu_list" url="/players?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZCszNjmNvFu/+xYfzxw5lZP3Y2o="/>
+        </menu:category>
     </menu:menu>
 </div>
