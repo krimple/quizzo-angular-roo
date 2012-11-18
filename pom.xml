@@ -442,12 +442,53 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>8.1.4.v20120524</version>
                 <configuration>
-                		
+                    <stopKey>stop</stopKey>
+                    <stopPort>9999</stopPort>
                     <webAppConfig>
                         <contextPath>/${project.name}</contextPath>
-                        
                     </webAppConfig>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <phase>post-integration-test</phase>
+                        <configuration>
+                            <stopKey>stop</stopKey>
+                            <stopPort>9999</stopPort>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>src/main/webapp/scripts/e2e-test.sh</executable>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
