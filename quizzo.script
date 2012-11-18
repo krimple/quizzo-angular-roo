@@ -5,5 +5,5 @@ CREATE USER SA PASSWORD ""
 GRANT DBA TO SA
 SET WRITE_DELAY 10
 SET SCHEMA PUBLIC
-INSERT INTO QUIZ VALUES(1,'lkjasdf','asldfkjas','lkajsdf',0)
-INSERT INTO QUIZ VALUES(2,'sf','awe','awf',0)
+INSERT INTO QUIZ VALUES(1,'asdflkj','asldfkj','asdflkj',0)
+INSERT INTO QUIZ VALUES(2,'asflaskdjf','alfkjasdfl','asflkasjdf',0)
