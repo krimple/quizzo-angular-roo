@@ -10,10 +10,3 @@ target
 log.roo
 .idea
 .DS_Store
-*/*/*.script
-*/*/*.properties
-chapter-02-getting-started/taskmanager/taskmanager/
-chapter-02-getting-started/taskmanager-noroo/taskmanager/
-chapter-02-getting-started/taskmanager/taskmanager/seg0/*.*
-chapter-02-getting-started/taskmanager/taskmanager/log/*.*
-chapter-02-getting-started/taskmanager/taskmanager/*.*
