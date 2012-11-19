@@ -60,7 +60,7 @@
 }
 
 form.quizzo-angular-form {
-    background-color: yellow;
+    background-color: lightyellow;
     width: 600px;
     padding:10px;
     border: 1px solid black;
@@ -71,7 +71,7 @@ form.quizzo-angular-form {
     font-style: normal;
     line-height: 24px;
     font-weight: bold;
-    color: #09C;
+    color: darkblue;
     text-decoration: none;
 }
 
