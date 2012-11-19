@@ -30,7 +30,8 @@
 
 <div class="container">
     <br/><br/> <br/>
-    <div ng-view></div>
+	<!-- this is the DIV replaced by the Angular UI framework - i.e. the App -->
+    <div ng-view> </div>
 </div> <!-- /container -->
 
 <div id="footer">
@@ -41,16 +42,16 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
   -->
 
+  <!-- application framework libraries setup -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-resource.js"></script>
   <script src="lib/angular/angular-ui.js"></script>
   <script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/jquery.tinymce.js"></script>
   <script src="http://fiddle.tinymce.com/tinymce/3.5.4.1/tiny_mce_jquery_src.js"></script>
-  
-  <script src="js/bootstrap.js"></script>
+  <script src="lib/bootstrap.js"></script>
 
+  <!-- our application components -->
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>

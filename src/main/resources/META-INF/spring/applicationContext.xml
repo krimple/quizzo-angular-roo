@@ -36,10 +36,10 @@
         instantiate your @Controller classes, as these should be instantiated
         by a web tier application context. Refer to web.xml for more details
         about the web tier application context setup services.
-        
-        Furthermore, this turns on @Autowired, @PostConstruct etc support. These 
-        annotations allow you to use common Spring and Java Enterprise Edition 
-        annotations in your classes without needing to do any special configuration. 
+
+        Furthermore, this turns on @Autowired, @PostConstruct etc support. These
+        annotations allow you to use common Spring and Java Enterprise Edition
+        annotations in your classes without needing to do any special configuration.
         The most commonly used annotation is @Autowired, which instructs Spring to
         dependency inject an object into your class.
     -->
@@ -48,7 +48,7 @@
         <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan>
     <bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
-        <property name="driverClassName" value="${database.driverClassName}"/>
+        <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
         <property name="url" value="${database.url}"/>
         <property name="username" value="${database.username}"/>
         <property name="password" value="${database.password}"/>

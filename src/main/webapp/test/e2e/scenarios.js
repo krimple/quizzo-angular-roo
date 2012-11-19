@@ -23,9 +23,9 @@ describe('quizzo app', function() {
 
     it('should render quizzes partial when user navigates to /quiz-http', function() {
       expect(repeater('.quizzes td', 'Quiz List').column("quiz.name")).
-		toEqual(["xzcgs", "asdfsaf"]);
+		toEqual(["Simple Quiz", "Difficult Quiz", "Strange Quiz"]);
 	  expect(repeater('.quizzes td', 'Quiz List').column("quiz.description")).
-		toEqual(["asfsd", "asdfsadf"]);
+		toEqual(["This is a Simple Quiz", "This is a Difficult Quiz", "This is a Strange Quiz"]);
     });
 
   });
@@ -38,10 +38,10 @@ describe('quizzo app', function() {
 
 
         it('should render quizzes partial when user navigates to /quiz', function() {
-            expect(repeater('.quizzes td', 'Quiz List').column("quiz.name")).
-                toEqual(["xzcgs", "asdfsaf"]);
-            expect(repeater('.quizzes td', 'Quiz List').column("quiz.description")).
-                toEqual(["asfsd", "asdfsadf"]);
+	      expect(repeater('.quizzes td', 'Quiz List').column("quiz.name")).
+			toEqual(["Simple Quiz", "Difficult Quiz", "Strange Quiz"]);
+		  expect(repeater('.quizzes td', 'Quiz List').column("quiz.description")).
+			toEqual(["This is a Simple Quiz", "This is a Difficult Quiz", "This is a Strange Quiz"]);
         });
 
     });

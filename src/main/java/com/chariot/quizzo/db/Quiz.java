@@ -26,7 +26,7 @@ public class Quiz {
     private String description;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "GameMembers",
+    @JoinTable(name = "game_member",
       joinColumns = {
             @JoinColumn(name = "quiz_id")},
       inverseJoinColumns = {

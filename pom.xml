@@ -314,27 +314,65 @@
         </properties>
       </profile>
       <profile>
-        <id>test</id>
-
+        <id>integrationtest</id>
         <properties>
-          <database.url>jdbc\:hsqldb:mem</database.url>
+            <database.url>jdbc:hsqldb:mem:quizzo</database.url>
         </properties>
+      </profile>
+      <profile>
+        <id>angulartest</id>
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <version>1.2.1</version>
+              <executions>
+                <execution>
+                  <phase>integration-test</phase>
+                  <goals>
+                    <goal>exec</goal>
+                  </goals>
+                  <configuration>
+                    <executable>src/main/webapp/scripts/e2e-test.sh</executable>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
+          </plugins>
+        </build>
       </profile>
     </profiles>
     <build>
       <resources>
         <resource>
           <directory>src/main/resources</directory>
-          <filtering>false</filtering>
+          <filtering>true</filtering>
+          <includes>
+            <include>META-INF/spring/database.properties</include>
+          </includes>
         </resource>
         <resource>
-          <directory>src/main/filtered-resources</directory>
-          <filtering>true</filtering>
+          <directory>src/main/resources</directory>
+          <filtering>false</filtering>
+          <excludes>
+            <exclude>META-INF/spring/database.properties</exclude>
+          </excludes>
         </resource>
       </resources>
 
         <plugins>
-
+          <!-- so we can use \${ ... } for our Maven substitutions, which will then be
+               filtered out before Spring gets to the files... -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+              <escapeString>\</escapeString>
+              <encoding>${project.build.sourceEncoding}</encoding>
+            </configuration>
+          </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -402,14 +440,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -514,23 +545,6 @@
                         <configuration>
                             <stopKey>stop</stopKey>
                             <stopPort>9999</stopPort>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>src/main/webapp/scripts/e2e-test.sh</executable>
                         </configuration>
                     </execution>
                 </executions>
