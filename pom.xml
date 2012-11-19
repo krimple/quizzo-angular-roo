@@ -12,8 +12,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <roo.version>1.2.2.RELEASE</roo.version>
         <slf4j.version>1.6.4</slf4j.version>
-        <spring.version>3.1.1.RELEASE</spring.version>
+        <spring.version>3.1.0.RELEASE</spring.version>
     </properties>
+
     <repositories>
         <repository>
             <id>spring-maven-release</id>
@@ -301,8 +302,52 @@
             <version>1.8.0.10</version>
         </dependency>
     </dependencies>
+
+    <profiles>
+      <profile>
+        <id>development</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+          <database.url>jdbc:hsqldb:file:quizzo;shutdown=true</database.url>
+        </properties>
+      </profile>
+      <profile>
+        <id>test</id>
+
+        <properties>
+          <database.url>jdbc\:hsqldb:mem</database.url>
+        </properties>
+      </profile>
+    </profiles>
     <build>
+      <resources>
+        <resource>
+          <directory>src/main/resources</directory>
+          <filtering>false</filtering>
+        </resource>
+        <resource>
+          <directory>src/main/filtered-resources</directory>
+          <filtering>true</filtering>
+        </resource>
+      </resources>
+
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version> 2.12.4</version>
+                <executions>
+                  <execution>
+                    <phase>integration-test</phase>
+                    <goals>
+                      <goal>integration-test</goal>
+                    </goals>
+                  </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -434,7 +479,7 @@
                 <artifactId>tomcat-maven-plugin</artifactId>
                 <version>1.1</version>
                 <configuration>
-                	
+
                 </configuration>
             </plugin>
             <plugin>
