@@ -9,19 +9,19 @@
         <p><span><label for="quizName">Name</label></span>
         <input id="quizName"
                      type="text" required
-                     ng-model="quizName" /></p>
+                     ng-model="quiz.name" /></p>
 
         <p><span><label for="shortName">Short Name</label></span>
         <input id="shortName"
                type="text" required
-               ng-model="shortName" />
+               ng-model="quiz.shortName" />
         </p>
         <p><span><label for="description">Description</label></span>
         <textarea id="description"
-                  ng-model="description"></textarea>
+                  ng-model="quiz.description"></textarea>
         </p>
 
-        <input type="button" ng-click="update(user)" value="SAVE"/>
+        <button ng-click="update(quiz)">Save</button>
 
         </fieldset>
     </form>
