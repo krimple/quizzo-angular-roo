@@ -18,6 +18,12 @@
         <param-value>classpath*:META-INF/spring/applicationContext*.xml</param-value>
     </context-param>
     
+	<!-- to make sure we select the JDBC file datasource by default in our business context -->
+	<context-param>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>development</param-value>
+	</context-param>
+	
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

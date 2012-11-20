@@ -13,6 +13,7 @@
         <roo.version>1.2.2.RELEASE</roo.version>
         <slf4j.version>1.6.4</slf4j.version>
         <spring.version>3.1.0.RELEASE</spring.version>
+		<spring.profiles.default>development</spring.profiles.default>
     </properties>
 
     <repositories>
@@ -305,22 +306,7 @@
 
     <profiles>
       <profile>
-        <id>development</id>
-        <activation>
-          <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-          <database.url>jdbc:hsqldb:file:quizzo;shutdown=true</database.url>
-        </properties>
-      </profile>
-      <profile>
-        <id>integrationtest</id>
-        <properties>
-            <database.url>jdbc:hsqldb:mem:quizzo</database.url>
-        </properties>
-      </profile>
-      <profile>
-        <id>angulartest</id>
+        <id>jsintegration</id>
         <build>
           <plugins>
             <plugin>
@@ -362,17 +348,6 @@
       </resources>
 
         <plugins>
-          <!-- so we can use \${ ... } for our Maven substitutions, which will then be
-               filtered out before Spring gets to the files... -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-resources-plugin</artifactId>
-            <version>2.6</version>
-            <configuration>
-              <escapeString>\</escapeString>
-              <encoding>${project.build.sourceEncoding}</encoding>
-            </configuration>
-          </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
