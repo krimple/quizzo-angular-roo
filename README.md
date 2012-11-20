@@ -26,7 +26,7 @@ command is: `mvn verify -Dspring.profiles.active=integration`
 * Integration tests (angularjs) - these are also run with the same
   command as above, but adding a Maven profile to activate the e2e test
 runner - it is `mvn verify -Dspring.profiles.active=integration
--Pjsintegration'
+-Pjsintegration`
 
 ## The Roo/Spring Side
 
