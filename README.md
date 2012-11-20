@@ -10,7 +10,23 @@ The Maven commands are:
 
 * `package` - configure the WAR file to run the application
 * `jetty:run` - execute the Jetty web server
-* `verify` - run the integration test stream, which launches the Angular `e2e` testing scripts. This currently is only functional on Unix/OS X but could be made functional on Windows platforms with a simple profile.
+
+## About testing
+
+I've configured several levels of tests:
+* Unit tests (java) - these can be tested by using `mvn test`
+* Unit tests (jasmine / Javascript) - these can be executed by the test
+  runner script, from src/main/webapp: `./scripts/test.sh` - this will
+run repeatedly until stopped. You need to install the `testacular` test
+framework.
+* Integration tests (java) - these can be run by a very specific
+  command. All tests ending in 'IT' will be executed by booting the web
+application, and then running these tests against the container. The
+command is: `mvn verify -Dspring.profiles.active=integration`
+* Integration tests (angularjs) - these are also run with the same
+  command as above, but adding a Maven profile to activate the e2e test
+runner - it is `mvn verify -Dspring.profiles.active=integration
+-Pjsintegration'
 
 ## The Roo/Spring Side
 
