@@ -3,8 +3,8 @@
 
 package com.chariot.quizzo.web;
 
-import com.chariot.quizzo.db.Quiz;
-import com.chariot.quizzo.web.QuizController;
+import com.chariot.quizzo.model.Quiz;
+
 import java.util.List;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -54,7 +54,7 @@ This allows me to properly control the name of the object when scaffolding both 
         @RequestMapping("/quizzes")
         @Controller
         @RooWebScaffold(path = "quizzes", formBackingObject = Quiz.class)
-        @RooWebJson(jsonObject = com.chariot.quizzo.db.Quiz.class)
+        @RooWebJson(jsonObject = com.chariot.quizzo.model.Quiz.class)
         @RooPlural("quizzes")
             public class QuizController {
         }

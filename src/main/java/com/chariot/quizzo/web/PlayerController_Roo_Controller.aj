@@ -3,8 +3,8 @@
 
 package com.chariot.quizzo.web;
 
-import com.chariot.quizzo.db.Player;
-import com.chariot.quizzo.web.PlayerController;
+import com.chariot.quizzo.model.Player;
+
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;

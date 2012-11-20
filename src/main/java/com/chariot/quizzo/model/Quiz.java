@@ -1,4 +1,4 @@
-package com.chariot.quizzo.db;
+package com.chariot.quizzo.model;
 
 import java.util.HashSet;
 import java.util.Set;

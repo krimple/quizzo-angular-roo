@@ -21,6 +21,7 @@ describe('quizzo app', function() {
     });
 
 
+
     it('should render quizzes partial when user navigates to /quiz-http', function() {
       expect(repeater('.quizzes td', 'Quiz List').column("quiz.name")).
 		toEqual(["Simple Quiz", "Difficult Quiz", "Strange Quiz"]);

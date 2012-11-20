@@ -1,7 +1,5 @@
-package com.chariot.quizzo.db;
+package com.chariot.quizzo.model;
 
-import org.hibernate.connection.DatasourceConnectionProvider;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

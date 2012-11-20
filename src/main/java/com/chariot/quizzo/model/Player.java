@@ -1,4 +1,4 @@
-package com.chariot.quizzo.db;
+package com.chariot.quizzo.model;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
