@@ -3,6 +3,7 @@
 
 package com.chariot.quizzo.model;
 
+import com.chariot.quizzo.model.Quiz;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import javax.persistence.Version;
 
 privileged aspect Quiz_Roo_Jpa_Entity {
     
-    declare @type: com.chariot.quizzo.model.Quiz: @Entity;
+    declare @type: Quiz: @Entity;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

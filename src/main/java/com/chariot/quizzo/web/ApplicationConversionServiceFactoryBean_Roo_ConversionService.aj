@@ -5,6 +5,7 @@ package com.chariot.quizzo.web;
 
 import com.chariot.quizzo.model.Player;
 import com.chariot.quizzo.model.Quiz;
+import com.chariot.quizzo.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -14,7 +15,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
     
     public Converter<Player, String> ApplicationConversionServiceFactoryBean.getPlayerToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<Player, java.lang.String>() {
+        return new org.springframework.core.convert.converter.Converter<com.chariot.quizzo.model.Player, java.lang.String>() {
             public String convert(Player player) {
                 return new StringBuilder().append(player.getNickName()).append(' ').append(player.getFirstName()).append(' ').append(player.getLastName()).toString();
             }
@@ -22,23 +23,23 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public Converter<Long, Player> ApplicationConversionServiceFactoryBean.getIdToPlayerConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, Player>() {
-            public Player convert(java.lang.Long id) {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.chariot.quizzo.model.Player>() {
+            public com.chariot.quizzo.model.Player convert(java.lang.Long id) {
                 return Player.findPlayer(id);
             }
         };
     }
     
     public Converter<String, Player> ApplicationConversionServiceFactoryBean.getStringToPlayerConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, Player>() {
-            public Player convert(String id) {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.chariot.quizzo.model.Player>() {
+            public com.chariot.quizzo.model.Player convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Player.class);
             }
         };
     }
     
     public Converter<Quiz, String> ApplicationConversionServiceFactoryBean.getQuizToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<Quiz, java.lang.String>() {
+        return new org.springframework.core.convert.converter.Converter<com.chariot.quizzo.model.Quiz, java.lang.String>() {
             public String convert(Quiz quiz) {
                 return new StringBuilder().append(quiz.getName()).append(' ').append(quiz.getShort_name()).append(' ').append(quiz.getDescription()).toString();
             }
@@ -46,16 +47,16 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public Converter<Long, Quiz> ApplicationConversionServiceFactoryBean.getIdToQuizConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, Quiz>() {
-            public Quiz convert(java.lang.Long id) {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.chariot.quizzo.model.Quiz>() {
+            public com.chariot.quizzo.model.Quiz convert(java.lang.Long id) {
                 return Quiz.findQuiz(id);
             }
         };
     }
     
     public Converter<String, Quiz> ApplicationConversionServiceFactoryBean.getStringToQuizConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, Quiz>() {
-            public Quiz convert(String id) {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.chariot.quizzo.model.Quiz>() {
+            public com.chariot.quizzo.model.Quiz convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Quiz.class);
             }
         };

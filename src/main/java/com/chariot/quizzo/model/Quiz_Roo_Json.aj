@@ -3,6 +3,7 @@
 
 package com.chariot.quizzo.model;
 
+import com.chariot.quizzo.model.Quiz;
 import flexjson.JSONDeserializer;
 import flexjson.JSONSerializer;
 import java.util.ArrayList;

@@ -3,6 +3,8 @@
 
 package com.chariot.quizzo.model;
 
+import com.chariot.quizzo.model.Player;
+import com.chariot.quizzo.model.Quiz;
 import java.util.Set;
 
 privileged aspect Quiz_Roo_JavaBean {

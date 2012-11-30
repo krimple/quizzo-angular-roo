@@ -2,11 +2,11 @@
 <div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:create id="fc_com_chariot_quizzo_db_Quiz" modelAttribute="quiz" path="/quizzes" render="${empty dependencies}" z="30UMccSdFB8Gqe/92Zofj5+Eezg=">
-        <field:input field="name" id="c_com_chariot_quizzo_db_Quiz_name" z="LpmuO9r6Nwi9Vd19XnIIJ3hCvvE="/>
-        <field:input field="short_name" id="c_com_chariot_quizzo_db_Quiz_short_name" z="aW+aGEtyGZ2QZulQNskn9He0m+U="/>
-        <field:input field="description" id="c_com_chariot_quizzo_db_Quiz_description" z="u9SvkuMfmrE3LJ5B1jS7nY1dOBo="/>
-        <field:select field="players" id="c_com_chariot_quizzo_db_Quiz_players" itemValue="id" items="${players}" multiple="true" path="/players" z="OS99iOFHIII51DTJe9FBUhUZhGA="/>
+    <form:create id="fc_com_chariot_quizzo_model_Quiz" modelAttribute="quiz" path="/quizzes" render="${empty dependencies}" z="R4PfpVnS2qIoErfoH3Nz2LfRx/0=">
+        <field:input field="name" id="c_com_chariot_quizzo_model_Quiz_name" z="9bnBhbUdQmek9fvSPzG/KqQoZdY="/>
+        <field:input field="short_name" id="c_com_chariot_quizzo_model_Quiz_short_name" z="ZEfgntWHXFoyjAR833/nDOSlOLE="/>
+        <field:input field="description" id="c_com_chariot_quizzo_model_Quiz_description" z="wRzM4NRjdWFM6SouJu7idHmb3E4="/>
+        <field:select field="players" id="c_com_chariot_quizzo_model_Quiz_players" itemValue="id" items="${players}" multiple="true" path="/players" z="LVNKV/P5OfbN/MnB2CP3BzlUfyA="/>
     </form:create>
-    <form:dependency dependencies="${dependencies}" id="d_com_chariot_quizzo_db_Quiz" render="${not empty dependencies}" z="n0hiro11IVBrh9HK8L0GAqc17Is="/>
+    <form:dependency dependencies="${dependencies}" id="d_com_chariot_quizzo_model_Quiz" render="${not empty dependencies}" z="k/UFblW/9PqTv6/reqXJckzdCf8="/>
 </div>

@@ -3,10 +3,11 @@
 
 package com.chariot.quizzo.model;
 
+import com.chariot.quizzo.model.Quiz;
 import org.springframework.beans.factory.annotation.Configurable;
 
 privileged aspect Quiz_Roo_Configurable {
     
-    declare @type: com.chariot.quizzo.model.Quiz: @Configurable;
+    declare @type: Quiz: @Configurable;
     
 }

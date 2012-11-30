@@ -3,6 +3,7 @@
 
 package com.chariot.quizzo.model;
 
+import com.chariot.quizzo.model.Quiz;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -48,7 +49,7 @@ privileged aspect Quiz_Roo_Jpa_ActiveRecord {
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Quiz attached = findQuiz(this.id);
+            Quiz attached = Quiz.findQuiz(this.id);
             this.entityManager.remove(attached);
         }
     }

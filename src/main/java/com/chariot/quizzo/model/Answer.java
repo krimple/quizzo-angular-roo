@@ -28,8 +28,8 @@ public class Answer {
   private Choice choice;
 
 
-  @Transient
-  public BigDecimal calculateScore() {
-    return (choice.getCorrect() ? new BigDecimal("1.0") : BigDecimal.ZERO);
-  }
+//  @Transient
+//  public BigDecimal calculateScore() {
+//    return (choice.getCorrect() ? new BigDecimal("1.0") : BigDecimal.ZERO);
+//  }
 }

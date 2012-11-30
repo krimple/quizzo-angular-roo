@@ -38,12 +38,12 @@ public class Team {
   @JoinColumn(name = "quiz_run_id")
   private QuizRun quizRun;
 
-  @Transient
-  public BigDecimal calculateTotalScore() {
-    BigDecimal score = new BigDecimal("0.0");
-    for (Answer answer: answers) {
-      score = score.add(answer.calculateScore());
-    }
-    return score;
-  }
+//  @Transient
+//  public BigDecimal calculateTotalScore() {
+//    BigDecimal score = new BigDecimal("0.0");
+//    for (Answer answer: answers) {
+//      score = score.add(answer.calculateScore());
+//    }
+//    return score;
+//  }
 }

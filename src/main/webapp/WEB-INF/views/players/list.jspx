@@ -2,11 +2,11 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_chariot_quizzo_db_Player" items="${players}" z="yJqcxkKkI31n7gmG3hcZtIZA2ms=">
-        <table:table data="${players}" id="l_com_chariot_quizzo_db_Player" path="/players" z="MJEanl4hGj+2MVRgJrzYcv2pKoI=">
-            <table:column id="c_com_chariot_quizzo_db_Player_nickName" property="nickName" z="yQfA32YJQVt5refPwLKF6ymzprw="/>
-            <table:column id="c_com_chariot_quizzo_db_Player_firstName" property="firstName" z="ixdvTd6LrRjZthbZOEjo/tUvz9A="/>
-            <table:column id="c_com_chariot_quizzo_db_Player_lastName" property="lastName" z="FTVSHYNQBXx4p92Lp5tQX/cRqWY="/>
+    <page:list id="pl_com_chariot_quizzo_model_Player" items="${players}" z="e8MUux4Tio98wNg9rtgVKVFaF8Y=">
+        <table:table data="${players}" id="l_com_chariot_quizzo_model_Player" path="/players" z="9hydFK6Jv0Z+ZcjNBKxk3em1slQ=">
+            <table:column id="c_com_chariot_quizzo_model_Player_nickName" property="nickName" z="4ylB1dWVm7jlnZCJnBkId+yRspU="/>
+            <table:column id="c_com_chariot_quizzo_model_Player_firstName" property="firstName" z="3x4LXFbFFFfM+at1d/dqnIE+NTw="/>
+            <table:column id="c_com_chariot_quizzo_model_Player_lastName" property="lastName" z="WddrSSofyadC5hvElAsTKwb7o04="/>
         </table:table>
     </page:list>
 </div>

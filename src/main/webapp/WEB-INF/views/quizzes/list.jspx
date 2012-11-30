@@ -2,12 +2,13 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_com_chariot_quizzo_db_Quiz" items="${quizzes}" z="user-managed">
-        <table:table data="${quizzes}" id="l_com_chariot_quizzo_db_Quiz" path="/quizzes" z="Q5irYAEdd7qeFF2XU/HZQVh4XKM=">
-            <table:column id="c_com_chariot_quizzo_db_Quiz_name" property="name" z="N8O8slopJz+gZWyR4TsUEh9DOlg="/>
-            <table:column id="c_com_chariot_quizzo_db_Quiz_short_name" property="short_name" z="T9eMUXZQqRy8fxUi0kQYdopLbJ4="/>
-            <table:column id="c_com_chariot_quizzo_db_Quiz_description" property="description" z="DEYBDSDqjRfxaEqCjnPBAO6mnwY="/>
-            <table:column id="c_com_chariot_quizzo_db_Quiz_players" property="players" z="wzUCaHYYcLQlM7hn2hcb+aaXO0Y="/>
+    <page:list id="pl_com_chariot_quizzo_db_Quiz" items="${quizzes}" z="user-managed"/>
+    <page:list id="pl_com_chariot_quizzo_model_Quiz" items="${quizzes}" z="3PuNgSVga0Op9O2MXxqpHPbNJZU=">
+        <table:table data="${quizzes}" id="l_com_chariot_quizzo_model_Quiz" path="/quizzes" z="QEZk04zvhc+te5/6K6LZAhjNPjw=">
+            <table:column id="c_com_chariot_quizzo_model_Quiz_name" property="name" z="E2VvSgEtcIaY6RJBD41CuzbPI4k="/>
+            <table:column id="c_com_chariot_quizzo_model_Quiz_short_name" property="short_name" z="bP/qi5PU357GT6cjNXKQPu1A/hk="/>
+            <table:column id="c_com_chariot_quizzo_model_Quiz_description" property="description" z="pxZ3/MDEtXnnFGw5kspcncv0W9w="/>
+            <table:column id="c_com_chariot_quizzo_model_Quiz_players" property="players" z="/rL3pPemRCF/Z8PUqRpfPmdD+sw="/>
         </table:table>
     </page:list>
 </div>
