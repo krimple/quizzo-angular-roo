@@ -7,7 +7,9 @@ angular.module('quizzoApp', ['ui', 'quizzoApp.filters', 'quizzoApp.services', 'q
       when('/quiz-http', {templateUrl: 'partials/quizzes.html', controller: QuizzoHttpCtrl}).
       when('/quiz', {templateUrl: 'partials/quizzes.html', controller: QuizzoRESTCtrl}).
       when('/quiz/:quiz', {templateUrl: 'partials/quiz_details.html', controller: QuizDetailsCtrl}).
-	    when('/newquiz', {templateUrl: 'partials/quiz_form.html', controller: NewQuizCtrl});
+	    when('/quiz-new', {templateUrl: 'partials/quiz_form.html', controller: QuizFormCtrl}).
+      when('/quiz/:quiz/edit', {templateUrl: 'partials/quiz_form.html', controller: QuizFormCtrl});
+
   }).
     run(function($rootScope) {
       $rootScope.getWSBase = function() {
