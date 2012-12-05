@@ -18,14 +18,21 @@ function QuizDetailsCtrl($scope, Quiz, $routeParams) {
     console.log($scope.quizDetails);
 }
 
-function NewQuizCtrl($scope) {
-
-}
-
 // inject the $location so we can browse to the main
 // page when we've finished inserting our new Quiz
-function QuizFormCtrl($scope, $location, Quiz) {
-    $scope.master= {};
+function QuizFormCtrl($scope, $location, $routeParams, Quiz) {
+    if ($routeParams.quiz) {
+      $scope.master = Quiz.get({"id" : $routeParams.quiz}, function() {
+        console.log("Quiz is ", $scope.master);
+      });
+      $scope.quiz = angular.copy($scope.master);
+    } else {
+      $scope.master= {
+        "name" : "Please enter name",
+        "description" : "Enter a good description.",
+        "shortName" : "enter a short name here"
+      };
+    }
 
     $scope.update = function(quiz) {
         $scope.master= angular.copy(quiz);
@@ -33,11 +40,17 @@ function QuizFormCtrl($scope, $location, Quiz) {
         // to our resource. IF successful, we browse to
         // our list again.
         // TODO - check for error and handle that
-        Quiz.save($scope.master, function(u, putResponseHeaders) {
+        if (quiz.id) {
+          Quiz.update($scope.master, function(u, putResponseHeaders) {
+            $location.path("/quiz/" + u.id);
+          });
+        } else {
+          Quiz.save($scope.master, function(u, putResponseHeaders) {
             //u => saved user object
             //putResponseHeaders => $http header getter
             $location.path("/quiz");
         });
+        };
     };
     $scope.reset = function() {
         $scope.quiz = angular.copy($scope.master);
