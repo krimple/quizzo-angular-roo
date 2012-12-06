@@ -22,10 +22,11 @@ function QuizDetailsCtrl($scope, Quiz, $routeParams) {
 // page when we've finished inserting our new Quiz
 function QuizFormCtrl($scope, $location, $routeParams, Quiz) {
     if ($routeParams.quiz) {
-      $scope.master = Quiz.get({"id" : $routeParams.quiz}, function() {
-        console.log("Quiz is ", $scope.master);
+      Quiz.get({"id" : $routeParams.quiz}, function(quizData) {
+        console.log("Quiz is ", quizData);
+        $scope.quiz = angular.copy(quizData);
       });
-      $scope.quiz = angular.copy($scope.master);
+
     } else {
       $scope.master= {
         "name" : "Please enter name",
@@ -35,7 +36,8 @@ function QuizFormCtrl($scope, $location, $routeParams, Quiz) {
     }
 
     $scope.update = function(quiz) {
-        $scope.master= angular.copy(quiz);
+        console.log("quiz is", quiz);
+        $scope.master = angular.copy(quiz);
         // now that we have valid form data, let's send it
         // to our resource. IF successful, we browse to
         // our list again.
