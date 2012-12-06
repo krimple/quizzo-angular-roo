@@ -6,9 +6,9 @@
     <page:list id="pl_com_chariot_quizzo_model_Quiz" items="${quizzes}" z="3PuNgSVga0Op9O2MXxqpHPbNJZU=">
         <table:table data="${quizzes}" id="l_com_chariot_quizzo_model_Quiz" path="/quizzes" z="QEZk04zvhc+te5/6K6LZAhjNPjw=">
             <table:column id="c_com_chariot_quizzo_model_Quiz_name" property="name" z="E2VvSgEtcIaY6RJBD41CuzbPI4k="/>
-            <table:column id="c_com_chariot_quizzo_model_Quiz_short_name" property="short_name" z="bP/qi5PU357GT6cjNXKQPu1A/hk="/>
             <table:column id="c_com_chariot_quizzo_model_Quiz_description" property="description" z="pxZ3/MDEtXnnFGw5kspcncv0W9w="/>
             <table:column id="c_com_chariot_quizzo_model_Quiz_players" property="players" z="/rL3pPemRCF/Z8PUqRpfPmdD+sw="/>
+            <table:column id="c_com_chariot_quizzo_model_Quiz_shortName" property="shortName" z="qeTP1vx0OYbqfXXGbMPlc/pL5eM="/>
         </table:table>
     </page:list>
 </div>

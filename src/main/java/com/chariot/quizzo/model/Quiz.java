@@ -21,7 +21,7 @@ public class Quiz {
 
     private String name;
 
-    private String short_name;
+    private String shortName;
 
     private String description;
 

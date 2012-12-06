@@ -1,30 +1,30 @@
 
-    <form name="quizForm"
-            class="quizzo-angular-form"
-            ng-controller="QuizFormCtrl"
-           >
-        <caption>Enter Quiz</caption>
-        <fieldset>
+<form name="quizForm"
+        class="quizzo-angular-form"
+        ng-controller="QuizFormCtrl"
+       >
+    <caption>Enter Quiz</caption>
+    <fieldset>
 
-        <p><span><label for="quizName">Name</label></span>
-        <input id="quizName"
-                     type="text" required
-                     ng-model="quiz.name" /></p>
+    <p><span><label for="quizName">Name</label></span>
+    <input id="quizName"
+                 type="text" required
+                 ng-model="quiz.name" /></p>
 
-        <p><span><label for="shortName">Short Name</label></span>
-        <input id="shortName"
-               type="text" required
-               ng-model="quiz.shortName" />
-        </p>
-        <p><span><label for="description">Description</label></span>
-        <textarea id="description"
-                  ng-model="quiz.description"></textarea>
-        </p>
+    <p><span><label for="shortName">Short Name</label></span>
+    <input id="shortName"
+           type="text" required
+           ng-model="quiz.shortName" />
+    </p>
+    <p><span><label for="description">Description</label></span>
+    <textarea id="description"
+              ng-model="quiz.description"></textarea>
+    </p>
 
-        <button ng-click="update(quiz)">Save</button>
+    <button ng-click="update(quiz)">Save</button>
 
-        </fieldset>
-    </form>
+    </fieldset>
+</form>
 
 
 

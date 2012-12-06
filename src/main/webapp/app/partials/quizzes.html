@@ -9,12 +9,14 @@
             <table id="quizzes">
                 <tr>
                     <th>Quiz</th>
+                    <th>Short Name</th>
                     <th>Description</th>
                     <th>Action</th>
                 </tr>
                 <tr class="quizzes"
                     ng-repeat='quiz in quizzes | filter: myfilter | orderBy: name'>
                     <td>{{quiz.name}}</td>
+                    <td>{{quiz.shortName}}</td>
                     <td>{{quiz.description}}</td>
                     <td><a href="#/quiz/{{quiz.id}}">Show</a> &nbsp;
                         <a href="#/quiz/{{quiz.id}}/edit">Edit</a></td>

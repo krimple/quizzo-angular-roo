@@ -17,12 +17,12 @@ privileged aspect Quiz_Roo_JavaBean {
         this.name = name;
     }
     
-    public String Quiz.getShort_name() {
-        return this.short_name;
+    public String Quiz.getShortName() {
+        return this.shortName;
     }
     
-    public void Quiz.setShort_name(String short_name) {
-        this.short_name = short_name;
+    public void Quiz.setShortName(String shortName) {
+        this.shortName = shortName;
     }
     
     public String Quiz.getDescription() {

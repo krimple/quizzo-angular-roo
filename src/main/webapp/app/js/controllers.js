@@ -44,14 +44,16 @@ function QuizFormCtrl($scope, $location, $routeParams, Quiz) {
         // TODO - check for error and handle that
         if (quiz.id) {
           Quiz.update($scope.master, function(u, putResponseHeaders) {
-            $location.path("/quiz/" + u.id);
+            $location.path("/quiz");
+
           });
         } else {
           Quiz.save($scope.master, function(u, putResponseHeaders) {
             //u => saved user object
             //putResponseHeaders => $http header getter
             $location.path("/quiz");
-        });
+
+          });
         };
     };
     $scope.reset = function() {

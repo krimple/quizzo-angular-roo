@@ -10,6 +10,7 @@ angular.module('quizzoApp.services', ['ngResource']).
     	  // take default methods against the quizzes resource
 	  return $resource(REST_ROOT ,{}, {
 		  'save':   {method:'POST'},
+      'update': {method: 'PUT'},
 		  'query':  {method:'GET', isArray:true},
       'get': {method:'GET'},
 		  'remove': {method:'DELETE'},

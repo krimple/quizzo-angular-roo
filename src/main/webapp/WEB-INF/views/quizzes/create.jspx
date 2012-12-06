@@ -4,9 +4,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_chariot_quizzo_model_Quiz" modelAttribute="quiz" path="/quizzes" render="${empty dependencies}" z="R4PfpVnS2qIoErfoH3Nz2LfRx/0=">
         <field:input field="name" id="c_com_chariot_quizzo_model_Quiz_name" z="9bnBhbUdQmek9fvSPzG/KqQoZdY="/>
-        <field:input field="short_name" id="c_com_chariot_quizzo_model_Quiz_short_name" z="ZEfgntWHXFoyjAR833/nDOSlOLE="/>
         <field:input field="description" id="c_com_chariot_quizzo_model_Quiz_description" z="wRzM4NRjdWFM6SouJu7idHmb3E4="/>
         <field:select field="players" id="c_com_chariot_quizzo_model_Quiz_players" itemValue="id" items="${players}" multiple="true" path="/players" z="LVNKV/P5OfbN/MnB2CP3BzlUfyA="/>
+        <field:input field="shortName" id="c_com_chariot_quizzo_model_Quiz_shortName" z="5zcRoxM2hKwXMkn50gFlMj2+iqE="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_chariot_quizzo_model_Quiz" render="${not empty dependencies}" z="k/UFblW/9PqTv6/reqXJckzdCf8="/>
 </div>
