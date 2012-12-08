@@ -7,7 +7,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
-@RooJson
+@RooJson(deepSerialize = true)
 @RooJpaActiveRecord
 public class Player {
 

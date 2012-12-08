@@ -21,7 +21,6 @@ import java.util.Set;
 @RooToString
 @RooJpaActiveRecord
 @RooSerializable
-@RooJson
 public class Team {
 
   @NotNull

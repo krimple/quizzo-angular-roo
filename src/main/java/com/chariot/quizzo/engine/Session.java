@@ -5,6 +5,7 @@ import com.chariot.quizzo.model.Quiz;
 import com.chariot.quizzo.model.Team;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
 /**
@@ -17,6 +18,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooJavaBean
 @Configurable
+
+@RooJson(deepSerialize = true)
 public class Session {
   private Quiz quiz;
   private Player player;

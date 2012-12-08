@@ -13,7 +13,7 @@ import java.util.List;
 privileged aspect Player_Roo_Json {
     
     public String Player.toJson() {
-        return new JSONSerializer().exclude("*.class").serialize(this);
+        return new JSONSerializer().exclude("*.class").deepSerialize(this);
     }
     
     public static Player Player.fromJsonToPlayer(String json) {
@@ -21,7 +21,7 @@ privileged aspect Player_Roo_Json {
     }
     
     public static String Player.toJsonArray(Collection<Player> collection) {
-        return new JSONSerializer().exclude("*.class").serialize(collection);
+        return new JSONSerializer().exclude("*.class").deepSerialize(collection);
     }
     
     public static Collection<Player> Player.fromJsonArrayToPlayers(String json) {

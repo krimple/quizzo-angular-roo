@@ -9,6 +9,10 @@ function QuizzoHttpCtrl($scope, $http) {
   	});
 }
 
+function EngineCtrl($scope, $http) {
+
+}
+
 function QuizzoRESTCtrl($scope, Quiz) {
   $scope.quizzes = Quiz.query();
 }
