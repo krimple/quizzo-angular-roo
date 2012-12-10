@@ -14,13 +14,14 @@ import java.beans.PersistenceDelegate;
 import java.math.BigDecimal;
 import java.util.*;
 
-@Repository
+@Component
 @Transactional
 public class SimpleQuizGenerator implements QuizGenerator {
 
     @PersistenceContext
     EntityManager em;
 
+    @Transactional
     public Quiz generateQuiz() {
         Quiz quiz = new Quiz();
         quiz.setName("Demo Quiz");
