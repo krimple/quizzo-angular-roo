@@ -11,36 +11,38 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.ContextConfigurationAttributes;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.context.web.WebMergedContextConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.SpringServletContainerInitializer;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
+@ActiveProfiles(profiles = {"development"})
+@WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
- "classpath*:/META-INF/spring/applicationContext*.xml"})
+@ContextConfiguration(locations = {"classpath*:/META-INF/spring/applicationContext*.xml"})
 public class EngineControllerTest {
 
-    ApplicationContext context;
+    @Autowired
+    WebApplicationContext context;
 
-    private EngineController controller;
+    @Autowired
+    MockMvc mvc;
 
-    @Before
-    public void setUp() {
-        System.setProperty("spring.profiles.active", "development");
-        context = new ClassPathXmlApplicationContext(
-          "classpath:/META-INF/spring/applicationContext.xml"
-
-        );
-
-        controller = new EngineController();
-        controller.setQuizGenerator(
-                context.getBean(QuizGenerator.class));
-
-        controller.setStateMachine(context.getBean(QuizRunStateMachine.class));
-    }
+//    @Before
+//    public void setUp() {
+//        controller = new EngineController();
+//        controller.setQuizGenerator(
+//                context.getBean(QuizGenerator.class));
+//
+//        controller.setStateMachine(context.getBean(QuizRunStateMachine.class));
+//    }
 
     @Test
     public void testContext() {
@@ -49,6 +51,7 @@ public class EngineControllerTest {
 
     @Test
     public void tryStartQuiz() {
+        this.mvc.perform(get(""))
         MockHttpSession session = new MockHttpSession();
         String result = controller.startQuizRun("Joey", session);
 
