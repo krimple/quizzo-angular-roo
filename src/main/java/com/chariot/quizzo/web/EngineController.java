@@ -2,19 +2,16 @@ package com.chariot.quizzo.web;
 
 import com.chariot.quizzo.engine.QuizGenerator;
 import com.chariot.quizzo.engine.QuizRunStateMachine;
-import com.chariot.quizzo.engine.Session;
-import com.chariot.quizzo.model.Player;
 import com.chariot.quizzo.model.Quiz;
-import org.hibernate.id.GUIDGenerator;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -29,6 +26,7 @@ import java.util.UUID;
 public class EngineController {
 
     private QuizRunStateMachine stateMachine;
+
     private QuizGenerator quizGenerator;
 
     @Autowired
@@ -41,29 +39,45 @@ public class EngineController {
         this.quizGenerator = quizGenerator;
     }
 
-    @RequestMapping(method = RequestMethod.GET,
-            value="/start")
     /**
-     * TODO - allow multiple players
-     * @param nickname
-     * @param session
-     * @return
+     * Creates an instance of the quiz. Currently only one, previously generated quiz will be created.
+     *
+     * TODO - The user specifies the /engine/start URL (not very RESTful - in future it will be
+     *        POSTed to create, PUT to update, etc)
+     *
+     * @param nickName the nickname to be used, injected as the name after /engine/start/
+     * @param session the injected HTTP Session
+     * @return A JSON result that includes the quiz_id and echoes back the nick_name used by the system
+     *
      */
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value="start/{name}",
+            produces = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody String startQuizRun(
-            @RequestBody String nickname,
+           @PathVariable("name") String nickName,
             HttpSession session) {
+
+        Map<String, String> response = new HashMap<String, String>();
+
         // create a random session key for this user
         UUID uuid = UUID.randomUUID();
-        // stuff it in their session to identify the player
-        session.setAttribute("playerKey", uuid);
 
-        // todo - use real quiz, not one generated here
+        // TODO - organize this as a wrapper player session object - for now just hold it
+        // stuff it in their session to identify the player - don't share it with them lest they compromise security
+        session.setAttribute("playerKey", uuid);
+        session.setAttribute("nickName", nickName);
+
+        // TODO - use real quiz, not one generated here
         Quiz quiz = quizGenerator.generateQuiz();
         session.setAttribute("quizId", quiz.getId());
         stateMachine.initializeQuiz(quiz);
+        response.put("quiz_id", Long.toString(quiz.getId()));
+        response.put("nick_name", nickName);
 
-        return "{ result: 'ok', " +
-                " quiz_id: '" + quiz.getId() + "'; }";
+        JSONSerializer serializer = new JSONSerializer();
+        return serializer.prettyPrint(true).serialize(response);
     }
 
 }
