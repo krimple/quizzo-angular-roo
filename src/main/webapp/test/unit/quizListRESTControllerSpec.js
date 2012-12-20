@@ -3,24 +3,13 @@
 /* jasmine specs for controllers go here */
 
 describe('QuizzoRESTCtrlSpec', function(){
-    var scope, quizzoRESTCtrl, $httpBackend;
+    var scope, $httpBackend, quizService, controller;
 
-    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
-        $httpBackend = _$httpBackend_;
-        $httpBackend.expectGET('/quizzo/quizzes').respond([
-            {
-                "name" : "Easy Quiz",
-                "id" : "easy_quiz",
-                "description" : "This is a simple quiz."
-            },
-            {
-                "name" : "Tough Quiz",
-                "id" : "tough_quiz",
-                "description" : "This is a tough quiz."
-            }]);
+    beforeEach(inject(function($rootScope, $controller) {
+        controller = $controller;
         scope = $rootScope.$new();
-        var quizService = {
-            index: function() {
+        quizService = {
+            query: function() {
                 return [
                     {
                         "name" : "Easy Quiz",
@@ -34,13 +23,11 @@ describe('QuizzoRESTCtrlSpec', function(){
                     }];
             }
         };
-        quizzoRESTCtrl = $controller(QuizzoHttpCtrl, {$scope: scope, Quiz: quizService});
     }));
 
 
     it('should make quizzo model with two quizzes fetched from xhr GET', function() {
-        expect(scope.quizzes).toBeUndefined();
-        $httpBackend.flush();
+        var quizzoRESTCtrl = controller(QuizzoRESTCtrl, {$scope: scope, Quiz: quizService});
         expect(scope.quizzes).toEqual([
             {
                 "name" : "Easy Quiz",

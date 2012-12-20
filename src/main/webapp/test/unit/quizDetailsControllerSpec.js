@@ -3,33 +3,37 @@
 /* jasmine specs for controllers go here */
 
 describe('QuizDetailsCtrlSpec', function(){
-  var scope, quizzoCtrl, $httpBackend;
+  var Quiz, scope, controller;
 
-  beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
-	$httpBackend = _$httpBackend_;
-	$httpBackend.expectGET('/quizzo/quizzes/1').respond(
- 	  {
-	    "name" : "Easy Quiz",
-	    "id" : "easy_quiz",
-	    "description" : "This is a simple quiz.",
-	    "players" : [
-			{
-				"nick" : "Joey"
-			},
-			{
-				"nick" : "Sue"
-			}
-		]
-	  });
-	scope = $rootScope.$new();
-    var routeParams = { "quiz" : "1"};
-    quizzoCtrl = $controller(QuizDetailsCtrl, {$scope: scope, $routeParams: routeParams});
+  beforeEach(inject(function($rootScope, $controller) {
+    scope = $rootScope.$new();
+    controller = $controller;
+
+	Quiz = {
+
+      get: function() {
+          return  {
+                "name" : "Easy Quiz",
+                "id" : "easy_quiz",
+                "description" : "This is a simple quiz.",
+                "players" : [
+                    {
+                        "nick" : "Joey"
+                    },
+                    {
+                        "nick" : "Sue"
+                    }
+                ]
+	        }
+      }
+    };
   }));
 
 
   it('should make quizzo model with two quizzes fetched from xhr GET', function() {
+    var routeParams = { "quiz" : "1"};
 	expect(scope.quizDetails).toBeUndefined();
-	$httpBackend.flush();
+    var quizzoCtrl = controller(QuizDetailsCtrl, {Quiz: Quiz, $scope: scope, $routeParams: routeParams});
 	expect(scope.quizDetails).toEqual({
 	    "name" : "Easy Quiz",
 	    "id" : "easy_quiz",
@@ -43,7 +47,6 @@ describe('QuizDetailsCtrlSpec', function(){
 			}
 		]
 	  });
-    //spec body
   });
 });
 
