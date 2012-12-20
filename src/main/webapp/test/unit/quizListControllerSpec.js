@@ -27,7 +27,7 @@ describe('QuizListControllerSpec', function(){
 
 
     it('should make quizzo model with two quizzes fetched from xhr GET', function() {
-        var quizzoRESTCtrl = controller(QuizListController, {$scope: scope, Quiz: quizService});
+        var quizListController = controller(QuizListController, {$scope: scope, Quiz: quizService});
         expect(scope.quizzes).toEqual([
             {
                 "name" : "Easy Quiz",
