@@ -2,7 +2,7 @@
 
 /* jasmine specs for controllers go here */
 
-describe('QuizDetailsCtrlSpec', function(){
+describe('QuizDetailsControllerSpec', function(){
   var Quiz, scope, controller;
 
   beforeEach(inject(function($rootScope, $controller) {
@@ -33,7 +33,7 @@ describe('QuizDetailsCtrlSpec', function(){
   it('should make quizzo model with two quizzes fetched from xhr GET', function() {
     var routeParams = { "quiz" : "1"};
 	expect(scope.quizDetails).toBeUndefined();
-    var quizzoCtrl = controller(QuizDetailsCtrl, {Quiz: Quiz, $scope: scope, $routeParams: routeParams});
+    var quizDetailsController = controller(QuizDetailsController, {Quiz: Quiz, $scope: scope, $routeParams: routeParams});
 	expect(scope.quizDetails).toEqual({
 	    "name" : "Easy Quiz",
 	    "id" : "easy_quiz",
