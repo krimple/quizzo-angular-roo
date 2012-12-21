@@ -59,6 +59,25 @@ public class EngineController {
            @PathVariable("name") String nickName,
             HttpSession session) {
 
+
+
+        Quiz quiz = initializeQuiz();
+        Map<String, String> response = createQuizSession(quiz, nickName, session);
+
+
+        JSONSerializer serializer = new JSONSerializer();
+        return serializer.prettyPrint(true).serialize(response);
+    }
+
+    private Quiz initializeQuiz() {
+        // TODO - use real quiz, not one generated here
+        // TODO - don't re-initialize quiz if already created and running, just connect to it
+        return quizGenerator.generateQuiz();
+    }
+
+    private Map<String, String> createQuizSession(
+            Quiz quiz, String nickName, HttpSession session) {
+
         Map<String, String> response = new HashMap<String, String>();
 
         // create a random session key for this user
@@ -68,16 +87,12 @@ public class EngineController {
         // stuff it in their session to identify the player - don't share it with them lest they compromise security
         session.setAttribute("playerKey", uuid);
         session.setAttribute("nickName", nickName);
-
-        // TODO - use real quiz, not one generated here
-        Quiz quiz = quizGenerator.generateQuiz();
+        // store information
         session.setAttribute("quizId", quiz.getId());
         stateMachine.initializeQuiz(quiz);
         response.put("quiz_id", Long.toString(quiz.getId()));
         response.put("nick_name", nickName);
-
-        JSONSerializer serializer = new JSONSerializer();
-        return serializer.prettyPrint(true).serialize(response);
+        return response;
     }
 
 }
