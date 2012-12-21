@@ -3,7 +3,7 @@
 
 package com.chariot.quizzo.web;
 
-import com.chariot.quizzo.model.Player;
+import com.chariot.quizzo.model.Question;
 import com.chariot.quizzo.model.Quiz;
 import com.chariot.quizzo.web.QuizController;
 import java.io.UnsupportedEncodingException;
@@ -87,7 +87,7 @@ privileged aspect QuizController_Roo_Controller {
     
     void QuizController.populateEditForm(Model uiModel, Quiz quiz) {
         uiModel.addAttribute("quiz", quiz);
-        uiModel.addAttribute("players", Player.findAllPlayers());
+        uiModel.addAttribute("questions", Question.findAllQuestions());
     }
     
     String QuizController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

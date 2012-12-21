@@ -5,7 +5,6 @@
     <form:update id="fu_com_chariot_quizzo_model_Quiz" modelAttribute="quiz" path="/quizzes" versionField="Version" z="MDbDznxTDvH+txoRTRtVEUkKQY0=">
         <field:input field="name" id="c_com_chariot_quizzo_model_Quiz_name" z="9bnBhbUdQmek9fvSPzG/KqQoZdY="/>
         <field:input field="description" id="c_com_chariot_quizzo_model_Quiz_description" z="wRzM4NRjdWFM6SouJu7idHmb3E4="/>
-        <field:select field="players" id="c_com_chariot_quizzo_model_Quiz_players" itemValue="id" items="${players}" multiple="true" path="/players" z="LVNKV/P5OfbN/MnB2CP3BzlUfyA="/>
-        <field:input field="shortName" id="c_com_chariot_quizzo_model_Quiz_shortName" z="5zcRoxM2hKwXMkn50gFlMj2+iqE="/>
+        <field:input field="questions" id="c_com_chariot_quizzo_model_Quiz_questions" z="kvAdDTtB/KDWYhGqqg4pOtsVfnE="/>
     </form:update>
 </div>

@@ -1,5 +1,6 @@
 package com.chariot.quizzo.model;
 
+import com.chariot.quizzo.engine.QuizRunState;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
@@ -27,10 +28,6 @@ public class QuizRun {
   @JoinColumn(name = "quiz_id")
   private Quiz quiz;
 
-  @OneToMany(mappedBy = "quizRun", cascade = CascadeType.REMOVE)
-  private Set<Team> teams = new HashSet<Team>();
+  private QuizRunState quizRunState;
 
-  @NotNull
-  @Size(max = 300)
-  private String text;
 }

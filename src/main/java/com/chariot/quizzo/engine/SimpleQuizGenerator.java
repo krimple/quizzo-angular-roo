@@ -25,7 +25,6 @@ public class SimpleQuizGenerator implements QuizGenerator {
     public Quiz generateQuiz() {
         Quiz quiz = new Quiz();
         quiz.setName("Demo Quiz");
-        quiz.setShortName("Demo");
         quiz.setDescription("This is a demo quiz");
 
         createQuestion(

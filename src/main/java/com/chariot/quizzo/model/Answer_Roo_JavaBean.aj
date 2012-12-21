@@ -5,17 +5,8 @@ package com.chariot.quizzo.model;
 
 import com.chariot.quizzo.model.Answer;
 import com.chariot.quizzo.model.Choice;
-import com.chariot.quizzo.model.Team;
 
 privileged aspect Answer_Roo_JavaBean {
-    
-    public Team Answer.getTeam() {
-        return this.team;
-    }
-    
-    public void Answer.setTeam(Team team) {
-        this.team = team;
-    }
     
     public Choice Answer.getChoice() {
         return this.choice;
@@ -23,6 +14,14 @@ privileged aspect Answer_Roo_JavaBean {
     
     public void Answer.setChoice(Choice choice) {
         this.choice = choice;
+    }
+    
+    public int Answer.getPointValue() {
+        return this.pointValue;
+    }
+    
+    public void Answer.setPointValue(int pointValue) {
+        this.pointValue = pointValue;
     }
     
 }

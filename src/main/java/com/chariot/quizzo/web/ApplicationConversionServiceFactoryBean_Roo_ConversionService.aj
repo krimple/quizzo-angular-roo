@@ -3,7 +3,6 @@
 
 package com.chariot.quizzo.web;
 
-import com.chariot.quizzo.model.Player;
 import com.chariot.quizzo.model.Quiz;
 import com.chariot.quizzo.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -14,34 +13,10 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
     
-    public Converter<Player, String> ApplicationConversionServiceFactoryBean.getPlayerToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.chariot.quizzo.model.Player, java.lang.String>() {
-            public String convert(Player player) {
-                return new StringBuilder().append(player.getNickName()).append(' ').append(player.getFirstName()).append(' ').append(player.getLastName()).toString();
-            }
-        };
-    }
-    
-    public Converter<Long, Player> ApplicationConversionServiceFactoryBean.getIdToPlayerConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.chariot.quizzo.model.Player>() {
-            public com.chariot.quizzo.model.Player convert(java.lang.Long id) {
-                return Player.findPlayer(id);
-            }
-        };
-    }
-    
-    public Converter<String, Player> ApplicationConversionServiceFactoryBean.getStringToPlayerConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.chariot.quizzo.model.Player>() {
-            public com.chariot.quizzo.model.Player convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), Player.class);
-            }
-        };
-    }
-    
     public Converter<Quiz, String> ApplicationConversionServiceFactoryBean.getQuizToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.chariot.quizzo.model.Quiz, java.lang.String>() {
             public String convert(Quiz quiz) {
-                return new StringBuilder().append(quiz.getName()).append(' ').append(quiz.getShortName()).append(' ').append(quiz.getDescription()).toString();
+                return new StringBuilder().append(quiz.getName()).append(' ').append(quiz.getDescription()).toString();
             }
         };
     }
@@ -63,9 +38,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
-        registry.addConverter(getPlayerToStringConverter());
-        registry.addConverter(getIdToPlayerConverter());
-        registry.addConverter(getStringToPlayerConverter());
         registry.addConverter(getQuizToStringConverter());
         registry.addConverter(getIdToQuizConverter());
         registry.addConverter(getStringToQuizConverter());

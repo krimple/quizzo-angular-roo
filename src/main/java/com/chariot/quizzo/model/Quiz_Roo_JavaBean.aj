@@ -3,7 +3,7 @@
 
 package com.chariot.quizzo.model;
 
-import com.chariot.quizzo.model.Player;
+import com.chariot.quizzo.model.Question;
 import com.chariot.quizzo.model.Quiz;
 import java.util.Set;
 
@@ -17,14 +17,6 @@ privileged aspect Quiz_Roo_JavaBean {
         this.name = name;
     }
     
-    public String Quiz.getShortName() {
-        return this.shortName;
-    }
-    
-    public void Quiz.setShortName(String shortName) {
-        this.shortName = shortName;
-    }
-    
     public String Quiz.getDescription() {
         return this.description;
     }
@@ -33,12 +25,12 @@ privileged aspect Quiz_Roo_JavaBean {
         this.description = description;
     }
     
-    public Set<Player> Quiz.getPlayers() {
-        return this.players;
+    public Set<Question> Quiz.getQuestions() {
+        return this.questions;
     }
     
-    public void Quiz.setPlayers(Set<Player> players) {
-        this.players = players;
+    public void Quiz.setQuestions(Set<Question> questions) {
+        this.questions = questions;
     }
     
 }

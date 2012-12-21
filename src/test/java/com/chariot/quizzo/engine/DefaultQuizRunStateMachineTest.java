@@ -1,16 +1,8 @@
 package com.chariot.quizzo.engine;
 
-import com.chariot.quizzo.model.Player;
-import com.chariot.quizzo.model.Quiz;
-import com.chariot.quizzo.model.Team;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class DefaultQuizRunStateMachineTest {
-
+ /*
   private DefaultQuizRunStateMachine stateMachine = null;
   private Quiz uninitializedQuiz = new Quiz();
   private Quiz quizInNotStartedState = new Quiz();
@@ -25,8 +17,6 @@ public class DefaultQuizRunStateMachineTest {
     quizRunStates.put(quizInEnrollTeamsState, QuizRunState.ENROLL_TEAMS);
     stateMachine.setQuizRunStates(quizRunStates);
   }
-
-
 
   @Test(expected = NullPointerException.class)
   public void testStartQuizWithQuizNotInSystem() {
@@ -52,4 +42,5 @@ public class DefaultQuizRunStateMachineTest {
 
     stateMachine.joinGame(quizInEnrollTeamsState, team, player);
   }
+  */
 }

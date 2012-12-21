@@ -15,7 +15,7 @@ import java.util.Set;
 @RooJavaBean
 @RooToString
 @RooJpaActiveRecord
-@RooJson
+@RooJson(deepSerialize = true)
 public class Question {
 
   @NotNull

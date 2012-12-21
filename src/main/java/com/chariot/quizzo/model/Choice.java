@@ -7,6 +7,7 @@ import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OrderColumn;
@@ -30,6 +31,7 @@ public class Choice implements Comparable<Choice>{
   @NotNull
   @DecimalMin("-1000")
   @DecimalMax("1000")
+  @Column(name = "point_value")
   protected BigDecimal pointValue;
 
   @NotNull

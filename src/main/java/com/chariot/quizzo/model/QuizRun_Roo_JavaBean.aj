@@ -3,10 +3,9 @@
 
 package com.chariot.quizzo.model;
 
+import com.chariot.quizzo.engine.QuizRunState;
 import com.chariot.quizzo.model.Quiz;
 import com.chariot.quizzo.model.QuizRun;
-import com.chariot.quizzo.model.Team;
-import java.util.Set;
 
 privileged aspect QuizRun_Roo_JavaBean {
     
@@ -18,20 +17,12 @@ privileged aspect QuizRun_Roo_JavaBean {
         this.quiz = quiz;
     }
     
-    public Set<Team> QuizRun.getTeams() {
-        return this.teams;
+    public QuizRunState QuizRun.getQuizRunState() {
+        return this.quizRunState;
     }
     
-    public void QuizRun.setTeams(Set<Team> teams) {
-        this.teams = teams;
-    }
-    
-    public String QuizRun.getText() {
-        return this.text;
-    }
-    
-    public void QuizRun.setText(String text) {
-        this.text = text;
+    public void QuizRun.setQuizRunState(QuizRunState quizRunState) {
+        this.quizRunState = quizRunState;
     }
     
 }
